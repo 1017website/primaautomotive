@@ -27,7 +27,7 @@
 </div>
 
 <div class="card">
-    <table class="table w-full">
+    <table class="cms-table w-full">
         <thead>
             <tr>
                 <th>Kode</th>
