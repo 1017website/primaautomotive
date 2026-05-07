@@ -236,10 +236,14 @@
 
             {{-- Col 1: Brand --}}
             <div class="lg:col-span-1">
-                {{-- Ganti dengan logo-white.png jika tersedia:
-                <img src="{{ asset('images/logo-white.png') }}" alt="Prima Automotive" class="h-[72px] w-auto object-contain mb-4">
-                --}}
-                <div class="flex items-center gap-2 mb-4 h-[72px]">
+                @php
+                    $footerLogo = \App\Models\SiteSetting::get('site_logo_white') ?: \App\Models\SiteSetting::get('site_logo');
+                    $siteName   = \App\Models\SiteSetting::get('site_name', 'Prima Automotive');
+                @endphp
+                @if($footerLogo)
+                <img src="{{ $footerLogo }}" alt="{{ $siteName }}" class="h-16 w-auto object-contain mb-4">
+                @else
+                <div class="flex items-center gap-2 mb-4">
                     <div class="w-12 h-12 bg-gradient-to-br from-[#e67e22] to-[#d35400] rounded-xl flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/>
@@ -251,6 +255,7 @@
                         <div class="font-bold text-[#e67e22] text-xs tracking-widest">AUTOMOTIVE</div>
                     </div>
                 </div>
+                @endif
                 <p class="text-gray-400 text-sm leading-relaxed">
                     Teknisi berpengalaman.<br>
                     Gratis Konsultasi.<br>

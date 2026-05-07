@@ -27,6 +27,7 @@
 </div>
 
 <div class="card">
+<div class="table-wrap">
     <table class="cms-table w-full">
         <thead>
             <tr>
@@ -72,6 +73,7 @@
             @endforelse
         </tbody>
     </table>
+</div>
 
     @if($bookings->hasPages())
     <div class="px-4 py-3 border-t border-gray-100">

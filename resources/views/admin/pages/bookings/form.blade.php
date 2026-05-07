@@ -13,7 +13,7 @@
         <h3 class="font-bold text-gray-800 mb-4 flex items-center gap-2">
             <i data-lucide="user" class="w-4 h-4 text-primary"></i> Data Pelanggan
         </h3>
-        <div class="grid md:grid-cols-3 gap-4 mb-6">
+        <div class="grid sm:grid-cols-3 gap-4 mb-6">
             <div class="md:col-span-1">
                 <label class="form-label">Nama <span class="text-red-500">*</span></label>
                 <input type="text" name="customer_name" value="{{ old('customer_name', $booking->customer_name) }}" class="form-input" required>
@@ -32,7 +32,7 @@
         <h3 class="font-bold text-gray-800 mb-4 flex items-center gap-2 pt-4 border-t border-gray-100">
             <i data-lucide="car" class="w-4 h-4 text-primary"></i> Data Kendaraan
         </h3>
-        <div class="grid md:grid-cols-2 gap-4 mb-6">
+        <div class="grid sm:grid-cols-2 gap-4 mb-6">
             <div>
                 <label class="form-label">Merk <span class="text-red-500">*</span></label>
                 <input type="text" name="vehicle_brand" value="{{ old('vehicle_brand', $booking->vehicle_brand) }}" class="form-input" placeholder="Toyota, Honda, BMW...">
@@ -55,7 +55,7 @@
         <h3 class="font-bold text-gray-800 mb-4 flex items-center gap-2 pt-4 border-t border-gray-100">
             <i data-lucide="wrench" class="w-4 h-4 text-primary"></i> Layanan & Status
         </h3>
-        <div class="grid md:grid-cols-2 gap-4 mb-4">
+        <div class="grid sm:grid-cols-2 gap-4 mb-4">
             <div>
                 <label class="form-label">Jenis Layanan <span class="text-red-500">*</span></label>
                 <input type="text" name="service_type" value="{{ old('service_type', $booking->service_type) }}" class="form-input" placeholder="Perbaikan Body, Ceramic Coating...">
@@ -70,7 +70,7 @@
             </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-4 mb-4">
+        <div class="grid sm:grid-cols-2 gap-4 mb-4">
             <div>
                 <label class="form-label">Status <span class="text-red-500">*</span></label>
                 <select name="status" class="form-select">

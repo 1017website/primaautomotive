@@ -9,6 +9,7 @@
 
 @section('content')
 <div class="card">
+<div class="table-wrap">
     <table class="cms-table w-full">
         <thead>
             <tr>
@@ -59,5 +60,6 @@
             @endforelse
         </tbody>
     </table>
+</div>
 </div>
 @endsection

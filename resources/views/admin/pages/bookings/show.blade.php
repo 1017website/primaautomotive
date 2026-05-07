@@ -22,7 +22,7 @@
                 <span class="badge badge-{{ $booking->status_color }} text-sm px-3 py-1">{{ $booking->status_label }}</span>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6">
+            <div class="grid sm:grid-cols-2 gap-6">
                 <div>
                     <h4 class="text-xs font-semibold uppercase text-gray-400 tracking-wide mb-3">Data Pelanggan</h4>
                     <div class="space-y-2 text-sm">
