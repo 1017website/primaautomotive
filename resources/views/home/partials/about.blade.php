@@ -9,8 +9,8 @@
 
             {{-- Header --}}
             <div class="text-center mb-12">
-                <span class="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-4">Tentang Kami</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-navy">Awal Sebuah Perjalanan</h2>
+                <span class="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-4">{{ __('frontend.about_badge') }}</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-navy">{{ __('frontend.about_title') }}</h2>
             </div>
 
             {{-- Story --}}
@@ -26,14 +26,14 @@
                 <div class="bg-gradient-to-br from-navy to-navy-light rounded-2xl p-8 text-white">
                     <div class="flex items-center gap-3 mb-4">
                         <i data-lucide="award" class="w-8 h-8 text-primary"></i>
-                        <h3 class="text-xl font-bold">Visi</h3>
+                        <h3 class="text-xl font-bold">{{ __('frontend.about_vision_title') }}</h3>
                     </div>
                     <p class="text-gray-300 leading-relaxed">Menjadi pilihan utama yang menetapkan standar unggul melalui kualitas, inovasi, dan kepuasan pelanggan.</p>
                 </div>
                 <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-100">
                     <div class="flex items-center gap-3 mb-4">
                         <i data-lucide="users" class="w-8 h-8 text-primary"></i>
-                        <h3 class="text-xl font-bold text-gray-800">Misi</h3>
+                        <h3 class="text-xl font-bold text-gray-800">{{ __('frontend.about_mission_title') }}</h3>
                     </div>
                     <ul class="space-y-2 text-gray-700">
                         @php
@@ -54,9 +54,9 @@
                 </div>
             </div>
 
-            {{-- JATIDIRI --}}
+            {{-- {{ __('frontend.about_jatidiri') }} --}}
             <div class="mt-12 reveal" data-delay="300">
-                <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">JATIDIRI</h3>
+                <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">{{ __('frontend.about_jatidiri') }}</h3>
                 <div class="flex gap-3 justify-center">
                     {{-- JATI --}}
                     <div class="jatidiri-card flex-1 max-w-[180px] bg-gradient-to-br from-navy to-navy-light rounded-2xl p-4">
@@ -64,7 +64,7 @@
                             <span class="text-2xl font-black text-primary tracking-widest">JATI</span>
                         </div>
                         <div class="space-y-2">
-                            @foreach ([['J','Jujur'],['A','Amanah'],['T','Teliti'],['I','Integritas']] as [$letter, $word])
+                            @foreach (__('frontend.jati_letters') as [$letter, $word])
                             <div class="flex items-center gap-2 bg-white/10 rounded-lg p-2">
                                 <div class="w-7 h-7 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">{{ $letter }}</div>
                                 <span class="font-medium text-white text-sm">{{ $word }}</span>
@@ -78,7 +78,7 @@
                             <span class="text-2xl font-black text-white tracking-widest">DIRI</span>
                         </div>
                         <div class="space-y-2">
-                            @foreach ([['D','Dedikasi'],['I','Ikhlas'],['R','Rapi'],['I','Introspeksi']] as [$letter, $word])
+                            @foreach (__('frontend.diri_letters') as [$letter, $word])
                             <div class="flex items-center gap-2 bg-white/20 rounded-lg p-2">
                                 <div class="w-7 h-7 bg-navy rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">{{ $letter }}</div>
                                 <span class="font-medium text-white text-sm">{{ $word }}</span>
@@ -91,8 +91,8 @@
 
             {{-- Motto --}}
             <div class="mt-12 text-center p-8 bg-gradient-to-r from-navy to-navy-light rounded-2xl reveal" data-delay="400">
-                <h3 class="text-lg font-bold text-white mb-4">Moto</h3>
-                <p class="text-2xl md:text-3xl font-bold text-primary leading-snug">Mewujudkan Keunggulan, Membangun Kepercayaan</p>
+                <h3 class="text-lg font-bold text-white mb-4">{{ __('frontend.about_motto_title') }}</h3>
+                <p class="text-2xl md:text-3xl font-bold text-primary leading-snug">{{ $settings['about_motto'] ?? __('frontend.about_motto_title') }}</p>
                 <p class="mt-4 text-gray-300 italic">Presisi, Rapi, Terbukti</p>
                 <p class="mt-2 text-primary font-bold">#PastiGlowing</p>
             </div>

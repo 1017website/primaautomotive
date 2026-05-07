@@ -12,11 +12,12 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $settings = SiteSetting::all_flat();
+        $locale   = app()->getLocale();
+        $settings = SiteSetting::all_flat_lang($locale);
         $services = Service::active()->get();
         $reviews  = Review::active()->get();
 
-        return view('home.index', compact('settings', 'services', 'reviews'));
+        return view('home.index', compact('settings', 'services', 'reviews', 'locale'));
     }
 
     public function track(Request $request)
@@ -25,7 +26,7 @@ class HomeController extends Controller
         $booking = Booking::where('booking_code', $request->booking_code)->first();
 
         if (!$booking) {
-            return response()->json(['found' => false, 'message' => 'ID booking tidak ditemukan. Silakan hubungi kami via WhatsApp.'], 404);
+            return response()->json(['found' => false, 'message' => 'ID booking tidak ditemukan.'], 404);
         }
 
         return response()->json([

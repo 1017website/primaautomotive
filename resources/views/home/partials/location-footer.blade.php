@@ -11,8 +11,8 @@
 
             {{-- LEFT: Info Card --}}
             <div class="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-10">
-                <span class="inline-block px-4 py-2 bg-[#e67e22]/10 text-[#e67e22] font-semibold rounded-full text-sm mb-4">Lokasi Kami</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-[#0a1628] mb-6">Kunjungi Kami</h2>
+                <span class="inline-block px-4 py-2 bg-[#e67e22]/10 text-[#e67e22] font-semibold rounded-full text-sm mb-4">{{ __('frontend.location_badge') }}</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#0a1628] mb-6">{{ __('frontend.location_title') }}</h2>
 
                 <div class="space-y-6">
 
@@ -24,7 +24,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-800">Alamat Lengkap</h4>
+                            <h4 class="font-bold text-gray-800">{{ __('frontend.location_address') }}</h4>
                             <p class="text-gray-600">Jl. Manyar Kartika Barat No.9</p>
                             <p class="text-gray-600">Menur Pumpungan, Kec. Sukolilo</p>
                             <p class="text-gray-600">Surabaya, Jawa Timur 60118</p>
@@ -39,10 +39,10 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-800">Jam Operasional</h4>
+                            <h4 class="font-bold text-gray-800">{{ __('frontend.location_hours') }}</h4>
                             <p class="text-gray-600 text-base">Senin - Jumat: 08.00 - 18.00</p>
                             <p class="text-gray-600 text-base">Sabtu: 08.00 - 17.00</p>
-                            <p class="text-gray-600 text-base">Hari Minggu: <span class="text-red-500 font-semibold">Hubungi kami</span></p>
+                            <p class="text-gray-600 text-base">{{ __('frontend.location_sunday') }}: <span class="text-red-500 font-semibold">Hubungi kami</span></p>
                         </div>
                     </div>
 
@@ -66,7 +66,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2">
                             <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>
                         </svg>
-                        Buka di Google Maps
+                        {{ __('frontend.location_maps_btn') }}
                     </button>
                 </a>
             </div>
@@ -106,9 +106,9 @@
 
             {{-- LEFT: Contact Info --}}
             <div class="bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-xl">
-                <span class="inline-block px-4 py-2 bg-[#e67e22]/10 text-[#e67e22] font-semibold rounded-full text-sm mb-4">Hubungi Kami</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-[#0a1628] mb-6">Punya Pertanyaan?</h2>
-                <p class="text-gray-600 mb-8">Hubungi kami untuk informasi lebih lanjut tentang layanan kami.</p>
+                <span class="inline-block px-4 py-2 bg-[#e67e22]/10 text-[#e67e22] font-semibold rounded-full text-sm mb-4">{{ __('frontend.contact_badge') }}</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#0a1628] mb-6">{{ __('frontend.contact_title') }}</h2>
+                <p class="text-gray-600 mb-8">{{ __('frontend.contact_desc') }}</p>
 
                 <div class="space-y-6">
                     {{-- Alamat --}}
@@ -133,7 +133,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-800">Telepon</h4>
+                            <h4 class="font-bold text-gray-800">{{ __('frontend.contact_phone_f') }}</h4>
                             <a href="tel:+{{ $settings['contact_whatsapp'] ?? '6287853722011' }}" class="text-gray-600 hover:text-[#e67e22] transition-colors">{{ $settings['contact_phone'] ?? '0878-5372-2011' }}</a>
                         </div>
                     </div>
@@ -146,7 +146,7 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-800">Jam Operasional</h4>
+                            <h4 class="font-bold text-gray-800">{{ __('frontend.location_hours') }}</h4>
                             <p class="text-gray-600 text-base">Senin - Jumat: 08.00 - 18.00</p>
                             <p class="text-gray-600 text-base">Sabtu: 08.00 - 17.00</p>
                         </div>
@@ -157,34 +157,34 @@
             {{-- RIGHT: Contact Form --}}
             <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-xl">
                 <div class="p-8">
-                    <h3 class="text-xl font-bold text-gray-800 mb-6">Kirim Pesan</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">{{ __('frontend.contact_form_title') }}</h3>
 
                     <form class="space-y-6" id="contact-form" onsubmit="handleContactForm(event)">
                         @csrf
                         <div class="grid md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">Nama</label>
-                                <input type="text" name="nama" placeholder="Nama Anda"
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">{{ __('frontend.contact_name') }}</label>
+                                <input type="text" name="nama" placeholder="{{ __('frontend.contact_name_ph') }}"
                                        class="w-full h-12 px-3 text-sm border border-gray-200 rounded-md bg-transparent focus:border-[#e67e22] focus:ring-2 focus:ring-[#e67e22]/20 outline-none transition-all"
                                        required>
                             </div>
                             <div>
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">Telepon</label>
-                                <input type="tel" name="telepon" placeholder="Nomor telepon"
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">{{ __('frontend.contact_phone_f') }}</label>
+                                <input type="tel" name="telepon" placeholder="{{ __('frontend.contact_phone_ph') }}"
                                        class="w-full h-12 px-3 text-sm border border-gray-200 rounded-md bg-transparent focus:border-[#e67e22] focus:ring-2 focus:ring-[#e67e22]/20 outline-none transition-all"
                                        required>
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-                            <input type="email" name="email" placeholder="email@example.com"
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">{{ __('frontend.contact_email') }}</label>
+                            <input type="email" name="email" placeholder="{{ __('frontend.contact_email_ph') }}"
                                    class="w-full h-12 px-3 text-sm border border-gray-200 rounded-md bg-transparent focus:border-[#e67e22] focus:ring-2 focus:ring-[#e67e22]/20 outline-none transition-all">
                         </div>
 
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Pesan</label>
-                            <textarea name="pesan" rows="4" placeholder="Apa yang bisa kami bantu?"
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">{{ __('frontend.contact_message') }}</label>
+                            <textarea name="pesan" rows="4" placeholder="{{ __('frontend.contact_msg_ph') }}"
                                       class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#e67e22] focus:ring-2 focus:ring-[#e67e22]/20 outline-none resize-none transition-all text-sm"
                                       required></textarea>
                         </div>
@@ -205,6 +205,19 @@
     </div>
 </section>
 
+
+
+{{-- ===== ELFSIGHT INSTAGRAM FEED ===== --}}
+@php $elfsightIG = \App\Models\SiteScript::inline('elfsight_instagram'); @endphp
+@if($elfsightIG)
+<section class="py-14 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-block px-4 py-2 bg-pink-100 text-pink-600 font-semibold rounded-full text-sm mb-4">Instagram</span>
+        <h2 class="text-2xl font-extrabold text-[#0a1628] mb-8">@primaautomotivesby</h2>
+        {!! $elfsightIG !!}
+    </div>
+</section>
+@endif
 
 {{-- ===== FOOTER ===== --}}
 <footer class="bg-[#0a1628] text-white py-16">
@@ -236,17 +249,17 @@
                 </p>
             </div>
 
-            {{-- Col 2: Menu Cepat --}}
+            {{-- Col 2: {{ __('frontend.footer_menu') }} --}}
             <div>
-                <h4 class="font-bold text-lg mb-6 text-[#e67e22]">Menu Cepat</h4>
+                <h4 class="font-bold text-lg mb-6 text-[#e67e22]">{{ __('frontend.footer_menu') }}</h4>
                 <ul class="space-y-3">
                     @foreach ([
                         ['#hero',     'Beranda'],
-                        ['#tracking', 'Lacak Perbaikan'],
+                        ['#tracking', __('frontend.footer_track')],
                         ['#services', 'Layanan Kami'],
                         ['#about',    'Tentang Kami'],
-                        ['#location', 'Lokasi Bengkel'],
-                        ['#contact',  'Hubungi Kami'],
+                        ['#location', __('frontend.footer_location')],
+                        ['#contact',  __('frontend.contact_badge')],
                     ] as [$href, $label])
                     <li>
                         <a href="{{ $href }}" data-scroll-to="{{ $href }}"
@@ -260,7 +273,7 @@
 
             {{-- Col 3: Layanan --}}
             <div>
-                <h4 class="font-bold text-lg mb-6 text-[#e67e22]">Layanan</h4>
+                <h4 class="font-bold text-lg mb-6 text-[#e67e22]">{{ __('frontend.footer_services') }}</h4>
                 <ul class="space-y-3">
                     @foreach ([
                         'Perbaikan Pasca Kecelakaan',
@@ -276,7 +289,7 @@
 
             {{-- Col 4: Hubungi Kami --}}
             <div>
-                <h4 class="font-bold text-lg mb-6 text-[#e67e22]">Hubungi Kami</h4>
+                <h4 class="font-bold text-lg mb-6 text-[#e67e22]">{{ __('frontend.footer_contact') }}</h4>
                 <ul class="space-y-4 text-gray-400">
                     <li class="flex items-start gap-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-[#e67e22] flex-shrink-0 mt-0.5">
@@ -305,7 +318,7 @@
 
         {{-- Bottom Bar --}}
         <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
-            <p>&copy; {{ date('Y') }} Prima Automotive. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Prima Automotive. {{ __('frontend.footer_copyright') }}</p>
         </div>
     </div>
 </footer>

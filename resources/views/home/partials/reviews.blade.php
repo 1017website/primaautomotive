@@ -6,8 +6,8 @@
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12 reveal">
-            <span class="inline-block px-4 py-2 bg-[#e67e22]/10 text-[#e67e22] font-semibold rounded-full text-sm mb-4">Ulasan Google</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold text-[#0a1628]">Apa Kata Pelanggan Kami</h2>
+            <span class="inline-block px-4 py-2 bg-[#e67e22]/10 text-[#e67e22] font-semibold rounded-full text-sm mb-4">{{ __('frontend.reviews_badge') }}</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[#0a1628]">{{ __('frontend.reviews_title') }}</h2>
             <div class="flex flex-wrap items-center justify-center gap-6 mt-6">
                 <div class="flex items-center gap-2">
                     <div class="flex">
@@ -16,7 +16,7 @@
                         @endfor
                     </div>
                     <span class="text-2xl font-bold text-[#0a1628]">{{ $settings['reviews_total_rating'] ?? '4.6' }}</span>
-                    <span class="text-gray-500">dari {{ $settings['reviews_total_count'] ?? '45' }} ulasan</span>
+                    <span class="text-gray-500">{{ __('frontend.reviews_from') }} {{ $settings['reviews_total_count'] ?? '45' }} {{ __('frontend.reviews_label') }}</span>
                 </div>
                 <div class="hidden md:block w-px h-8 bg-gray-300"></div>
                 <div class="flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-md">
@@ -25,7 +25,7 @@
                     </div>
                     <div class="text-left">
                         <div class="text-2xl font-bold text-[#0a1628]">{{ $settings['reviews_happy_percent'] ?? '95' }}%</div>
-                        <div class="text-sm text-gray-500">Pelanggan Puas</div>
+                        <div class="text-sm text-gray-500">{{ __('frontend.reviews_satisfied') }}</div>
                     </div>
                 </div>
             </div>
@@ -57,9 +57,19 @@
         <div class="text-center mt-10 reveal">
             <a href="{{ $settings['reviews_google_url'] ?? '#' }}" target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center gap-2 text-[#e67e22] font-bold hover:underline transition-all group">
-                Lihat semua ulasan di Google
+                {{ __('frontend.reviews_more') }}
                 <i data-lucide="chevron-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
             </a>
         </div>
     </div>
 </section>
+
+{{-- ===== ELFSIGHT GOOGLE REVIEWS WIDGET ===== --}}
+@php $elfsightReviews = \App\Models\SiteScript::inline('elfsight_google_reviews'); @endphp
+@if($elfsightReviews)
+<section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {!! $elfsightReviews !!}
+    </div>
+</section>
+@endif

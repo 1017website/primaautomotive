@@ -12,21 +12,21 @@
 
         {{-- Header --}}
         <div class="text-center mb-16 reveal">
-            <span class="inline-block px-4 py-2 bg-white/10 text-primary font-semibold rounded-full text-sm mb-4">Cara Kerja</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold">Alur Kerja Kami</h2>
-            <p class="text-gray-400 mt-3">Proses transparan dari konsultasi hingga kendaraan kembali ke tangan Anda</p>
+            <span class="inline-block px-4 py-2 bg-white/10 text-primary font-semibold rounded-full text-sm mb-4">{{ __('frontend.process_badge') }}</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold">{{ __('frontend.process_title') }}</h2>
+            <p class="text-gray-400 mt-3">{{ __('frontend.process_subtitle') }}</p>
         </div>
 
         {{-- Steps --}}
         <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
             @php
             $steps = [
-                ['num' => '01', 'title' => 'Konsultasi',  'desc' => 'Dapatkan estimasi biaya dan waktu perbaikan secara gratis',      'icon' => 'message-circle', 'delay' => 0],
-                ['num' => '02', 'title' => 'Booking',     'desc' => 'Pilih jadwal yang sesuai dengan waktu luang Anda',               'icon' => 'calendar',       'delay' => 100],
-                ['num' => '03', 'title' => 'Pengecekan',  'desc' => 'Dokumentasi kondisi awal kendaraan sebelum perbaikan',           'icon' => 'clipboard-check','delay' => 200],
-                ['num' => '04', 'title' => 'Perbaikan',   'desc' => 'Proses pengerjaan oleh teknisi profesional berpengalaman',       'icon' => 'wrench',         'delay' => 300],
-                ['num' => '05', 'title' => 'QC',          'desc' => 'Pemeriksaan kualitas menyeluruh sebelum diserahkan',             'icon' => 'shield-check',   'delay' => 400],
-                ['num' => '06', 'title' => 'Selesai',     'desc' => 'Kendaraan siap diambil dengan garansi kepuasan penuh',           'icon' => 'check-circle',   'delay' => 500],
+                ['num' => '01', 'title' => __('frontend.process_steps.0.title'),  'desc' => __('frontend.process_steps.0.desc'),      'icon' => 'message-circle', 'delay' => 0],
+                ['num' => '02', 'title' => __('frontend.process_steps.1.title'),     'desc' => __('frontend.process_steps.1.desc'),               'icon' => 'calendar',       'delay' => 100],
+                ['num' => '03', 'title' => __('frontend.process_steps.2.title'),  'desc' => __('frontend.process_steps.2.desc'),           'icon' => 'clipboard-check','delay' => 200],
+                ['num' => '04', 'title' => __('frontend.process_steps.3.title'),   'desc' => __('frontend.process_steps.3.desc'),       'icon' => 'wrench',         'delay' => 300],
+                ['num' => '05', 'title' => __('frontend.process_steps.4.title'),          'desc' => __('frontend.process_steps.4.desc'),             'icon' => 'shield-check',   'delay' => 400],
+                ['num' => '06', 'title' => __('frontend.process_steps.5.title'),     'desc' => __('frontend.process_steps.5.desc'),           'icon' => 'check-circle',   'delay' => 500],
             ];
             @endphp
 
@@ -54,7 +54,7 @@
                target="_blank"
                class="btn-lift inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold px-10 py-4 rounded-xl text-lg transition-colors">
                 <i data-lucide="calendar-plus" class="w-5 h-5"></i>
-                Mulai Sekarang
+                {{ __('frontend.process_cta') }}
             </a>
         </div>
     </div>

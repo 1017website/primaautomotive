@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,8 +72,17 @@
         @media(max-width:768px){.process-step::after{display:none}.hero-title{font-size:2.2rem}}
     </style>
     @stack('styles')
+
+    {{-- ===== INJECTED SCRIPTS: HEAD (Ads, GTM, Analytics) ===== --}}
+    @foreach(\App\Models\SiteScript::forPosition('head') as $script)
+    {!! $script->code !!}
+    @endforeach
 </head>
 <body class="bg-white">
+{{-- GTM body start --}}
+@foreach(\App\Models\SiteScript::forPosition('body_start') as $script)
+{!! $script->code !!}
+@endforeach
 <div id="scroll-progress" style="width:0%"></div>
 @include('home.partials.navbar')
 @include('home.partials.mobile-menu')
@@ -105,5 +114,10 @@ document.querySelectorAll('a[href^="#"],[data-scroll-to]').forEach(el=>{
 });
 </script>
 @stack('scripts')
+
+{{-- ===== INJECTED SCRIPTS: BODY END (Elfsight, Custom) ===== --}}
+@foreach(\App\Models\SiteScript::forPosition('body_end') as $script)
+{!! $script->code !!}
+@endforeach
 </body>
 </html>

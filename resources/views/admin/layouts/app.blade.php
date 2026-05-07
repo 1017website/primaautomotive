@@ -146,6 +146,14 @@
                 Ulasan
             </a>
 
+            <div class="sidebar-group">Integrasi</div>
+
+            <a href="{{ route('admin.scripts.index') }}"
+               class="sidebar-link {{ request()->routeIs('admin.scripts*') ? 'active' : '' }}">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                Ads & Scripts
+            </a>
+
             <div class="sidebar-group">Pengaturan</div>
 
             @foreach([

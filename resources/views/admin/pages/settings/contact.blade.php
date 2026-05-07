@@ -2,7 +2,7 @@
 @section('title', 'Pengaturan: Contact')
 @section('breadcrumb', 'Pengaturan → Contact')
 @section('content')
-<div class="card p-6">
-    @include('admin.partials.settings-form', ['group' => 'contact'])
+<div class="card" style="padding:24px;">
+    @include('admin.partials.settings-form-bilingual', ['group' => 'contact'])
 </div>
 @endsection
