@@ -119,5 +119,63 @@ document.querySelectorAll('a[href^="#"],[data-scroll-to]').forEach(el=>{
 @foreach(\App\Models\SiteScript::forPosition('body_end') as $script)
 {!! $script->code !!}
 @endforeach
+
+    {{-- ===== CLICK TRACKING ===== --}}
+    <script>
+    const _csrfToken = document.querySelector('meta[name="csrf-token"]')?.content || '';
+
+    function trackClick(event, label) {
+        fetch('/analytics/click', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': _csrfToken },
+            body: JSON.stringify({ event, label, page: window.location.pathname }),
+            keepalive: true,
+        }).catch(() => {});
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // WA Floating button
+        document.querySelector('.wa-float')?.addEventListener('click', () => trackClick('wa_float', 'Floating WA'));
+
+        // All WA links
+        document.querySelectorAll('a[href*="wa.me"]').forEach(el => {
+            el.addEventListener('click', () => {
+                const isFloat = el.classList.contains('wa-float');
+                if (!isFloat) trackClick('wa_chat', el.textContent.trim().substring(0,50));
+            });
+        });
+
+        // Phone links
+        document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+            el.addEventListener('click', () => trackClick('phone_call', el.textContent.trim()));
+        });
+
+        // Book appointment buttons
+        document.querySelectorAll('a[href*="wa.me"]').forEach(el => {
+            const text = el.textContent.trim().toLowerCase();
+            if (text.includes('janji') || text.includes('book') || text.includes('appointment')) {
+                el.addEventListener('click', () => trackClick('book_appointment', text.substring(0,50)));
+            }
+        });
+
+        // Google Maps links
+        document.querySelectorAll('a[href*="maps.google"], a[href*="goo.gl/maps"], a[href*="share.google"]').forEach(el => {
+            if (!el.href.includes('review')) {
+                el.addEventListener('click', () => trackClick('maps_open', 'Google Maps'));
+            }
+        });
+
+        // Google Reviews link
+        document.querySelectorAll('a[href*="share.google"]').forEach(el => {
+            el.addEventListener('click', () => trackClick('google_review', 'Google Reviews'));
+        });
+
+        // Track vehicle form submit
+        document.getElementById('tracking-form')?.addEventListener('submit', () => {
+            trackClick('track_vehicle', document.getElementById('booking-id')?.value || '');
+        });
+    });
+    </script>
+
 </body>
 </html>

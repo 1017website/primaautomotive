@@ -90,6 +90,18 @@
         /* Overflow table wrapper on mobile */
         .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px;}
 
+        /* Custom scrollbar for sidebar - thin and subtle */
+        #sidebar::-webkit-scrollbar { width: 3px; }
+        #sidebar::-webkit-scrollbar-track { background: transparent; }
+        #sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+        #sidebar::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+        #sidebar { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.1) transparent; }
+
+        /* Hide sidebar close btn on desktop */
+        @media(min-width:1024px) {
+            #sidebar-close-btn { display: none !important; }
+        }
+
         /* Mobile: hide long text */
         @media(max-width:640px){
             .hide-sm{display:none!important;}
@@ -127,7 +139,7 @@
             @endif
         </div>
         {{-- Close button (mobile only) --}}
-        <button onclick="closeSidebar()" class="lg:hidden"
+        <button onclick="closeSidebar()" id="sidebar-close-btn"
                 style="background:rgba(255,255,255,.08);border:none;border-radius:7px;padding:6px;cursor:pointer;color:#94a3b8;display:flex;align-items:center;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
@@ -141,6 +153,12 @@
            class="snav {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
             Dashboard
+        </a>
+
+        <a href="{{ route('admin.analytics') }}" onclick="closeSidebar()"
+           class="snav {{ request()->routeIs('admin.analytics') ? 'active' : '' }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Analytics
         </a>
 
         <a href="{{ route('admin.bookings.index') }}" onclick="closeSidebar()"
