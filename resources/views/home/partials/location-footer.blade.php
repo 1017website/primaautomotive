@@ -46,6 +46,15 @@
                         </div>
                     </div>
 
+                    {{-- Elfsight Business Hours Widget --}}
+                    @php $elfsightBH = \App\Models\SiteScript::inline('elfsight_business_hours'); @endphp
+                    @if($elfsightBH)
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        {!! $elfsightBH !!}
+                    </div>
+                    @endif
+
+
                     {{-- Kontak --}}
                     <div class="flex items-start gap-4">
                         <div class="w-12 h-12 bg-[#e67e22]/10 rounded-xl flex items-center justify-center flex-shrink-0">

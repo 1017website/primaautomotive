@@ -7,18 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     protected $fillable = [
-        'title',
-        'title_en',
-        'badge',
-        'badge_en',
-        'description',
-        'description_en',
-        'icon',
-        'gradient',
-        'features',
-        'features_en',
-        'is_active',
-        'sort_order',
+        'title', 'title_en',
+        'badge', 'badge_en',
+        'description', 'description_en',
+        'icon', 'gradient',
+        'features', 'features_en',
+        'is_active', 'sort_order',
     ];
 
     protected $casts = [
