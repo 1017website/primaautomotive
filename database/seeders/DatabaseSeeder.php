@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
             ['key' => 'seo_description',  'value' => 'Bengkel cat mobil dan perbaikan body profesional di Surabaya. Garansi 6-24 bulan, teknisi berpengalaman, hasil standar pabrik.', 'type' => 'textarea', 'group' => 'seo', 'label' => 'SEO Description'],
             ['key' => 'seo_keywords',     'value' => 'bengkel cat mobil surabaya, perbaikan body mobil, ceramic coating surabaya, ppf surabaya, bengkel body surabaya', 'type' => 'textarea', 'group' => 'seo', 'label' => 'SEO Keywords'],
             ['key' => 'seo_og_image',     'value' => '',  'type' => 'image',    'group' => 'seo', 'label' => 'OG Image (Share Preview)'],
-            ['key' => 'seo_favicon',      'value' => '',  'type' => 'image',    'group' => 'seo', 'label' => 'Favicon'],
+            ['key' => 'seo_favicon',      'value' => '',  'type' => 'image',    'group' => 'general', 'label' => 'Favicon (ICO/PNG, tampil di tab browser)'],
 
             // --- GENERAL ---
             ['key' => 'site_logo',        'value' => '',  'type' => 'image',    'group' => 'general', 'label' => 'Logo (warna)'],
@@ -135,3 +135,5 @@ class DatabaseSeeder extends Seeder
         }
     }
 }
+
+// Will be appended - see note below

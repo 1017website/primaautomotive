@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buat Janji — {{ $settings['site_name'] ?? 'Prima Automotive' }}</title>
+    @php $bookingFavicon = \App\Models\SiteSetting::get('seo_favicon', ''); @endphp
+    @if($bookingFavicon)
+    <link rel="icon" type="image/x-icon" href="{{ $bookingFavicon }}">
+    <link rel="shortcut icon" href="{{ $bookingFavicon }}">
+    <link rel="apple-touch-icon" href="{{ $bookingFavicon }}">
+    @endif
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">

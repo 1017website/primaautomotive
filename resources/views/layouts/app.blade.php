@@ -23,7 +23,12 @@
     <meta property="og:site_name"   content="{{ $siteName }}">
     @if($seoOgImage)<meta property="og:image" content="{{ url($seoOgImage) }}">@endif
     <meta name="twitter:card"  content="summary_large_image">
-    @if($seofavicon)<link rel="icon" href="{{ $seofavicon }}">@endif
+    @php $favicon = $seofavicon ?: ''; @endphp
+    @if($favicon)
+    <link rel="icon" type="image/x-icon" href="{{ $favicon }}">
+    <link rel="shortcut icon" href="{{ $favicon }}">
+    <link rel="apple-touch-icon" href="{{ $favicon }}">
+    @endif
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <script src="https://cdn.tailwindcss.com"></script>
