@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BookingPageController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AnalyticsController;
@@ -17,6 +18,10 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/track', [HomeController::class, 'track'])->name('track');
 Route::post('/contact', [HomeController::class, 'sendMessage'])->name('contact.send');
 Route::post('/analytics/click', [AnalyticsController::class, 'recordClick'])->name('analytics.click');
+
+// ===== BOOKING PAGE =====
+Route::get('/booking', [BookingPageController::class, 'index'])->name('booking');
+Route::post('/booking', [BookingPageController::class, 'store'])->name('booking.store');
 
 // ===== LANGUAGE =====
 Route::get('/lang/{locale}', [LanguageController::class, 'switch'])->name('lang.switch');

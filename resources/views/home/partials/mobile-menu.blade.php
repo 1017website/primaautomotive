@@ -43,7 +43,7 @@
                     🇺🇸 English
                 </a>
             </div>
-            <a href="https://wa.me/{{ $settings['contact_whatsapp'] ?? '6287853722011' }}?text={{ urlencode('Halo, saya ingin buat janji perbaikan kendaraan') }}"
+            <a href="{{ route('booking') }}"
                target="_blank"
                class="w-full flex items-center justify-center gap-2 bg-[#e67e22] hover:bg-[#d35400] text-white font-bold px-6 py-3 rounded-xl transition-colors text-sm">
                 {{ __('frontend.nav_book') }}

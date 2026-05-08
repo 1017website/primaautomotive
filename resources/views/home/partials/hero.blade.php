@@ -66,8 +66,7 @@
 
                 {{-- CTA Buttons --}}
                 <div class="flex flex-wrap gap-4 anim-fade-up delay-500">
-                    <a href="https://wa.me/{{ $settings['contact_whatsapp'] ?? '6287853722011' }}?text=Halo%2C%20saya%20ingin%20buat%20janji%20perbaikan%20kendaraan"
-                       target="_blank"
+                    <a href="{{ route('booking') }}"
                        class="btn-lift inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold px-8 py-4 text-lg rounded-xl transition-colors">
                         {{ __('frontend.hero_cta_book') }}
                         <i data-lucide="chevron-right" class="w-5 h-5"></i>
