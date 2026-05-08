@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\ScriptController;
+use App\Http\Controllers\Admin\ArtisanController;
 
 // ===== FRONTEND =====
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -46,4 +47,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::resource('reviews', ReviewController::class);
     Route::resource('bookings', BookingController::class);
     Route::resource('messages', ContactMessageController::class)->only(['index', 'show', 'destroy']);
+
+    Route::get('/artisan', [ArtisanController::class, 'index'])->name('artisan.index');
+    Route::post('/artisan/run', [ArtisanController::class, 'run'])->name('artisan.run');
 });
