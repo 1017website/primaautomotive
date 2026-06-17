@@ -33,6 +33,7 @@ return [
     'track_btn'         => 'Lacak Kendaraan',
     'track_help'        => 'Butuh bantuan?',
     'track_wa'          => 'Chat WhatsApp untuk bantuan',
+    'track_button'       => 'Lacak Kendaraan',
 
     // Reviews
     'reviews_title'     => 'Apa Kata Pelanggan Kami',

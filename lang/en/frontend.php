@@ -33,6 +33,7 @@ return [
     'track_btn'         => 'Track Vehicle',
     'track_help'        => 'Need help?',
     'track_wa'          => 'Chat on WhatsApp for assistance',
+    'track_button'       => 'Track Vehicle',
 
     // Reviews
     'reviews_title'     => 'What Our Customers Say',
