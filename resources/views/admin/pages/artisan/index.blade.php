@@ -78,7 +78,7 @@
         {{-- Group: Database --}}
         <div style="padding:4px 16px 4px;border-top:1px solid #f8fafc;">
             <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#94a3b8;margin-bottom:8px;margin-top:10px;">Database</div>
-            @foreach(['migrate','migrate:status','migrate:rollback','migrate:fresh','db:seed'] as $cmd)
+            @foreach(['migrate','migrate:status','migrate:rollback'] as $cmd)
             @if(isset($commands[$cmd]))
             @php $isDanger = isset($commands[$cmd]['danger']); @endphp
             <button onclick="prepareRun('{{ $cmd }}')"
