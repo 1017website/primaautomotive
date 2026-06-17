@@ -1,55 +1,69 @@
 @php $locale = app()->getLocale(); @endphp
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-
-            {{-- Logo --}}
-            <a href="#hero" data-scroll-to="#hero" class="flex items-center gap-2 h-full py-2">
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+    <div class="pa-container">
+        <div class="h-[76px] lg:h-[84px] flex items-center justify-between gap-5">
+            <a href="#hero" data-scroll-to="#hero" class="group flex items-center gap-3 min-w-0">
                 @php $logo = \App\Models\SiteSetting::get('site_logo'); @endphp
                 @if($logo)
-                <img src="{{ $logo }}" alt="{{ \App\Models\SiteSetting::get('site_name','Prima Automotive') }}" class="h-14 w-auto object-contain">
+                <span class="relative inline-flex items-center">
+                    <span class="absolute -left-3 top-1/2 h-9 w-1 -translate-y-1/2 bg-orange-500 group-hover:h-11 transition-all"></span>
+                    <span class="bg-white px-4 py-2 border border-zinc-200 shadow-sm">
+                        <img src="{{ $logo }}" alt="{{ \App\Models\SiteSetting::get('site_name','Prima Automotive') }}" class="h-9 lg:h-10 w-auto object-contain">
+                    </span>
+                </span>
                 @else
-                <div class="w-10 h-10 bg-gradient-to-br from-[#e67e22] to-[#d35400] rounded-xl flex items-center justify-center">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
-                </div>
-                <div>
-                    <div class="font-black text-[#0a1628] text-lg leading-tight">Prima</div>
-                    <div class="font-bold text-[#e67e22] text-xs tracking-wider">AUTOMOTIVE</div>
-                </div>
+                <span class="relative w-11 h-11 bg-zinc-950 text-white flex items-center justify-center overflow-hidden">
+                    <span class="absolute -right-3 inset-y-0 w-5 bg-orange-500 skew-x-[-16deg]"></span>
+                    <i data-lucide="car-front" class="relative w-5 h-5"></i>
+                </span>
+                <span class="leading-none">
+                    <span class="block font-black text-zinc-950 text-base uppercase tracking-[-.04em]">Prima</span>
+                    <span class="block font-black text-orange-600 text-[10px] tracking-[.24em] uppercase mt-1">Automotive</span>
+                </span>
                 @endif
             </a>
 
-            {{-- Desktop Nav --}}
-            <div class="hidden md:flex items-center gap-7">
-                <a href="#hero"     data-scroll-to="#hero"     class="text-gray-700 hover:text-[#e67e22] font-semibold transition-colors cursor-pointer text-sm">{{ __('frontend.nav_home') }}</a>
-                <a href="#tracking" data-scroll-to="#tracking" class="text-gray-700 hover:text-[#e67e22] font-semibold transition-colors cursor-pointer text-sm">{{ __('frontend.nav_track') }}</a>
-                <a href="#services" data-scroll-to="#services" class="text-gray-700 hover:text-[#e67e22] font-semibold transition-colors cursor-pointer text-sm">{{ __('frontend.nav_services') }}</a>
-                <a href="#about"    data-scroll-to="#about"    class="text-gray-700 hover:text-[#e67e22] font-semibold transition-colors cursor-pointer text-sm">{{ __('frontend.nav_about') }}</a>
-                <a href="#location" data-scroll-to="#location" class="text-gray-700 hover:text-[#e67e22] font-semibold transition-colors cursor-pointer text-sm">{{ __('frontend.nav_location') }}</a>
-                <a href="#contact"  data-scroll-to="#contact"  class="text-gray-700 hover:text-[#e67e22] font-semibold transition-colors cursor-pointer text-sm">{{ __('frontend.nav_contact') }}</a>
+            <div class="hidden lg:flex flex-1 items-center justify-center">
+                <div class="inline-flex items-center gap-8">
+                    @foreach([
+                        ['#hero', 'nav_home'],
+                        ['#tracking', 'nav_track'],
+                        ['#services', 'nav_services'],
+                        ['#about', 'nav_about'],
+                        ['#location', 'nav_location'],
+                        ['#contact', 'nav_contact'],
+                    ] as [$href, $key])
+                    <a href="{{ $href }}" data-scroll-to="{{ $href }}"
+                       class="relative text-[11px] font-black uppercase tracking-[.18em] text-zinc-500 hover:text-zinc-950 transition-colors cursor-pointer py-3 group/nav">
+                        <span>{{ __('frontend.' . $key) }}</span>
+                        <span class="absolute left-0 right-0 bottom-1 h-[2px] bg-orange-500 scale-x-0 origin-left group-hover/nav:scale-x-100 transition-transform duration-300"></span>
+                    </a>
+                    @endforeach
+                </div>
+            </div>
 
-                {{-- Language Switcher --}}
-                <div class="flex items-center gap-1 bg-gray-100 rounded-lg p-1">
+            <div class="hidden md:flex items-center gap-3">
+                <div class="flex items-center border border-zinc-200 bg-white/75 backdrop-blur-xl">
                     <a href="{{ route('lang.switch', 'id') }}"
-                       class="px-2.5 py-1 rounded-md text-xs font-bold transition-all {{ $locale === 'id' ? 'bg-white text-[#e67e22] shadow-sm' : 'text-gray-500 hover:text-gray-700' }}">
+                       class="px-3.5 py-2 text-[11px] font-black uppercase tracking-wider transition-all {{ $locale === 'id' ? 'bg-zinc-950 text-white' : 'text-zinc-500 hover:text-zinc-950' }}">
                         ID
                     </a>
                     <a href="{{ route('lang.switch', 'en') }}"
-                       class="px-2.5 py-1 rounded-md text-xs font-bold transition-all {{ $locale === 'en' ? 'bg-white text-[#e67e22] shadow-sm' : 'text-gray-500 hover:text-gray-700' }}">
+                       class="px-3.5 py-2 text-[11px] font-black uppercase tracking-wider transition-all {{ $locale === 'en' ? 'bg-zinc-950 text-white' : 'text-zinc-500 hover:text-zinc-950' }}">
                         EN
                     </a>
                 </div>
 
                 <a href="{{ route('booking') }}"
-                   target="_blank"
-                   class="btn-lift inline-flex items-center gap-2 bg-[#e67e22] hover:bg-[#d35400] text-white font-bold px-5 py-2.5 rounded-lg text-sm transition-colors">
+                   class="pa-btn-primary inline-flex items-center gap-2 font-black px-5 py-3 text-[11px] uppercase tracking-[.16em]">
                     {{ __('frontend.nav_book') }}
+                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
                 </a>
             </div>
 
-            {{-- Hamburger --}}
-            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-700"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            <button id="mobile-menu-btn" class="md:hidden w-12 h-12 bg-zinc-950 text-white flex items-center justify-center" aria-label="Open menu">
+                <span class="sr-only">Open menu</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
             </button>
         </div>
     </div>

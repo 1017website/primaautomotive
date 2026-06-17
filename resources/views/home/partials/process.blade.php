@@ -1,61 +1,54 @@
-{{-- PROCESS / ALUR KERJA SECTION --}}
-<section class="relative py-20 bg-gradient-to-br from-navy to-navy-light text-white overflow-hidden">
-
-    {{-- Decorative elements --}}
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-10 left-10 w-40 h-40 rounded-full bg-white/3 blur-2xl"></div>
-        <div class="absolute bottom-10 right-10 w-60 h-60 rounded-full bg-primary/10 blur-3xl"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-    </div>
-
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {{-- Header --}}
-        <div class="text-center mb-16 reveal">
-            <span class="inline-block px-4 py-2 bg-white/10 text-primary font-semibold rounded-full text-sm mb-4">{{ __('frontend.process_badge') }}</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold">{{ __('frontend.process_title') }}</h2>
-            <p class="text-gray-400 mt-3">{{ __('frontend.process_subtitle') }}</p>
+{{-- PROCESS SECTION - Precision workflow with subtle orange accents --}}
+<section id="process" class="pa-section bg-[#fffaf4] overflow-hidden">
+    <span class="pa-section-line"></span>
+    <div class="pa-subtle-mark left-[-5rem] top-20 hidden lg:block"></div>
+    <div class="pa-container relative">
+        <div class="grid lg:grid-cols-[.9fr_1.1fr] gap-8 lg:gap-16 items-end mb-12 lg:mb-16">
+            <div class="reveal-left">
+                <span class="pa-kicker">{{ __('frontend.process_badge') }}</span>
+                <h2 class="pa-title mt-5 text-5xl md:text-7xl font-black leading-[.86]">{{ __('frontend.process_title') }}<span>.</span></h2>
+            </div>
+            <p class="reveal-right text-zinc-600 text-lg md:text-xl leading-relaxed max-w-3xl" data-delay="100">{{ __('frontend.process_subtitle') }}</p>
         </div>
 
-        {{-- Steps --}}
-        <div class="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div class="grid lg:grid-cols-3 border-y border-zinc-200 bg-white/104 backdrop-blur-sm shadow-xl shadow-zinc-950/5">
             @php
             $steps = [
-                ['num' => '01', 'title' => __('frontend.process_steps.0.title'),  'desc' => __('frontend.process_steps.0.desc'),      'icon' => 'message-circle', 'delay' => 0],
-                ['num' => '02', 'title' => __('frontend.process_steps.1.title'),     'desc' => __('frontend.process_steps.1.desc'),               'icon' => 'calendar',       'delay' => 100],
-                ['num' => '03', 'title' => __('frontend.process_steps.2.title'),  'desc' => __('frontend.process_steps.2.desc'),           'icon' => 'clipboard-check','delay' => 200],
-                ['num' => '04', 'title' => __('frontend.process_steps.3.title'),   'desc' => __('frontend.process_steps.3.desc'),       'icon' => 'wrench',         'delay' => 300],
-                ['num' => '05', 'title' => __('frontend.process_steps.4.title'),          'desc' => __('frontend.process_steps.4.desc'),             'icon' => 'shield-check',   'delay' => 400],
-                ['num' => '06', 'title' => __('frontend.process_steps.5.title'),     'desc' => __('frontend.process_steps.5.desc'),           'icon' => 'check-circle',   'delay' => 500],
+                ['title' => __('frontend.process_steps.0.title'), 'desc' => __('frontend.process_steps.0.desc'), 'icon' => 'message-circle'],
+                ['title' => __('frontend.process_steps.1.title'), 'desc' => __('frontend.process_steps.1.desc'), 'icon' => 'calendar-check'],
+                ['title' => __('frontend.process_steps.2.title'), 'desc' => __('frontend.process_steps.2.desc'), 'icon' => 'scan-search'],
+                ['title' => __('frontend.process_steps.3.title'), 'desc' => __('frontend.process_steps.3.desc'), 'icon' => 'wrench'],
+                ['title' => __('frontend.process_steps.4.title'), 'desc' => __('frontend.process_steps.4.desc'), 'icon' => 'shield-check'],
+                ['title' => __('frontend.process_steps.5.title'), 'desc' => __('frontend.process_steps.5.desc'), 'icon' => 'check-circle'],
             ];
             @endphp
-
-            @foreach ($steps as $step)
-            <div class="process-step text-center reveal" data-delay="{{ $step['delay'] }}">
-                {{-- Step Number --}}
-                <div class="step-number w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary to-yellow-400 rounded-xl flex items-center justify-center text-xl font-extrabold shadow-lg text-white">
-                    {{ $step['num'] }}
+            @foreach($steps as $i => $step)
+            <div class="relative p-6 md:p-8 lg:p-9 border-b lg:border-b-0 lg:border-r last:border-r-0 border-zinc-200 reveal group" data-delay="{{ $i * 120 }}">
+                <div class="absolute left-0 top-0 h-[3px] w-0 bg-orange-500 group-hover:w-full transition-all duration-500"></div>
+                <div class="flex items-center justify-between mb-14">
+                    <span class="text-[11px] font-black uppercase tracking-[.24em] text-zinc-400">Step</span>
+                    <span class="text-6xl font-black tracking-[-.08em] text-zinc-100 group-hover:text-orange-100 transition-colors">0{{ $i + 1 }}</span>
                 </div>
-
-                {{-- Icon --}}
-                <div class="w-10 h-10 mx-auto mb-3 bg-white/10 rounded-lg flex items-center justify-center">
-                    <i data-lucide="{{ $step['icon'] }}" class="w-5 h-5 text-primary"></i>
+                <div class="w-14 h-14 bg-white border border-zinc-200 text-orange-600 flex items-center justify-center mb-7 group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 transition-colors shadow-sm">
+                    <i data-lucide="{{ $step['icon'] }}" class="w-7 h-7"></i>
                 </div>
-
-                <h3 class="text-sm font-bold mb-1 text-white">{{ $step['title'] }}</h3>
-                <p class="text-xs text-gray-400 leading-relaxed">{{ $step['desc'] }}</p>
+                <h3 class="text-2xl md:text-3xl font-black uppercase tracking-[-.055em] text-zinc-950 leading-[.92] mb-4">{{ $step['title'] }}</h3>
+                <p class="text-zinc-600 text-sm leading-relaxed">{{ $step['desc'] }}</p>
             </div>
             @endforeach
         </div>
 
-        {{-- Bottom CTA --}}
-        <div class="text-center mt-14 reveal">
-            <a href="https://wa.me/6287853722011?text=Halo%2C%20saya%20ingin%20mulai%20konsultasi%20dan%20booking%20perbaikan"
-               target="_blank"
-               class="btn-lift inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold px-10 py-4 rounded-xl text-lg transition-colors">
-                <i data-lucide="calendar-plus" class="w-5 h-5"></i>
-                {{ __('frontend.process_cta') }}
-            </a>
+        <div class="mt-10 grid md:grid-cols-3 gap-4 reveal">
+            @foreach([
+                ['label' => 'Transparent Estimate', 'value' => 'No Hidden Cost'],
+                ['label' => 'Paint Standard', 'value' => 'Factory Finish'],
+                ['label' => 'After Service', 'value' => 'Warranty Support'],
+            ] as $item)
+            <div class="bg-white border border-zinc-200 p-5 flex items-center justify-between gap-4 shadow-sm">
+                <span class="text-[10px] font-black uppercase tracking-[.22em] text-zinc-500">{{ $item['label'] }}</span>
+                <span class="font-black text-zinc-950 uppercase tracking-[-.03em]">{{ $item['value'] }}</span>
+            </div>
+            @endforeach
         </div>
     </div>
 </section>
