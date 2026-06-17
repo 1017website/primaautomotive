@@ -2,7 +2,7 @@
 @php
     $wa = $settings['contact_whatsapp'] ?? '6287853722011';
     $phone = $settings['contact_phone'] ?? '0878-5372-2011';
-    $footerLogo = \App\Models\SiteSetting::get('site_logo');
+    $footerLogo = \App\Models\SiteSetting::get('site_logo_white');
     $siteName = \App\Models\SiteSetting::get('site_name', 'Prima Automotive');
 @endphp
 
@@ -169,7 +169,7 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14 mb-12">
             <div>
                 @if($footerLogo)
-                <div class="inline-flex bg-white px-4 py-3 mb-6">
+                <div class="inline-flex">
                     <img src="{{ $footerLogo }}" alt="{{ $siteName }}" class="h-12 w-auto object-contain">
                 </div>
                 @else

@@ -12,12 +12,14 @@ return [
 
     // Hero
     'hero_badge'       => 'Bengkel Resmi Surabaya · Buka Sekarang',
-    'hero_stat_repairs'=> 'Perbaikan Selesai',
-    'hero_stat_warranty'=> 'Bulan Garansi Cat',
+    'hero_stat_repairs' => 'Perbaikan Selesai',
+    'hero_stat_warranty' => 'Bulan Garansi Cat',
     'hero_stat_rating' => 'Rating Google',
     'hero_stat_happy'  => 'Pelanggan Puas',
     'hero_cta_book'    => 'Buat Janji',
     'hero_cta_call'    => 'Hubungi Kami',
+    'hero_cta_booking'    => 'Buat Janji',
+    'hero_cta_consult'    => 'Hubungi Kami',
     'hero_trust_warranty'  => 'Garansi Resmi',
     'hero_trust_paint'     => 'Cat OEM Glasurit',
     'hero_trust_tracking'  => 'Real-time Tracking',
@@ -39,6 +41,7 @@ return [
     'reviews_more'      => 'Lihat semua ulasan di Google',
     'reviews_from'      => 'dari',
     'reviews_label'     => 'ulasan',
+    'reviews_subtitle'  => 'Ulasan terbaru dari pelanggan kami',
 
     // Services
     'services_badge'    => 'Keahlian Kami',
@@ -46,7 +49,7 @@ return [
     'services_subtitle' => 'Dua layanan utama kami dirancang untuk mengembalikan & mempertahankan kondisi terbaik kendaraan Anda.',
     'services_detail'   => 'Lihat Detail',
     'services_close'    => 'Tutup',
-    'services_cta_title'=> 'Tidak yakin layanan mana yang tepat?',
+    'services_cta_title' => 'Tidak yakin layanan mana yang tepat?',
     'services_cta_desc' => 'Konsultasi gratis dengan teknisi kami. Tanpa biaya, tanpa komitmen.',
     'services_cta_btn'  => 'Konsultasi Gratis',
 
@@ -67,12 +70,12 @@ return [
     // About
     'about_badge'       => 'Tentang Kami',
     'about_title'       => 'Awal Sebuah Perjalanan',
-    'about_vision_title'=> 'Visi',
-    'about_mission_title'=> 'Misi',
+    'about_vision_title' => 'Visi',
+    'about_mission_title' => 'Misi',
     'about_motto_title' => 'Moto',
     'about_jatidiri'    => 'JATIDIRI',
-    'jati_letters'      => [['J','Jujur'],['A','Amanah'],['T','Teliti'],['I','Integritas']],
-    'diri_letters'      => [['D','Dedikasi'],['I','Ikhlas'],['R','Rapi'],['I','Introspeksi']],
+    'jati_letters'      => [['J', 'Jujur'], ['A', 'Amanah'], ['T', 'Teliti'], ['I', 'Integritas']],
+    'diri_letters'      => [['D', 'Dedikasi'], ['I', 'Ikhlas'], ['R', 'Rapi'], ['I', 'Introspeksi']],
 
     // Location
     'location_badge'    => 'Lokasi Kami',
@@ -90,7 +93,7 @@ return [
     'contact_address'   => 'Alamat',
     'contact_phone'     => 'Telepon',
     'contact_hours'     => 'Jam Operasional',
-    'contact_form_title'=> 'Kirim Pesan',
+    'contact_form_title' => 'Kirim Pesan',
     'contact_name'      => 'Nama',
     'contact_phone_f'   => 'Telepon',
     'contact_email'     => 'Email',

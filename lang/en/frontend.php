@@ -18,6 +18,8 @@ return [
     'hero_stat_happy'  => 'Satisfied Customers',
     'hero_cta_book'    => 'Book Appointment',
     'hero_cta_call'    => 'Call Us',
+    'hero_cta_booking'    => 'Book Appointment',
+    'hero_cta_consult'    => 'Consult Us',
     'hero_trust_warranty'  => 'Official Warranty',
     'hero_trust_paint'     => 'OEM Glasurit Paint',
     'hero_trust_tracking'  => 'Real-time Tracking',
@@ -39,6 +41,7 @@ return [
     'reviews_more'      => 'See all reviews on Google',
     'reviews_from'      => 'from',
     'reviews_label'     => 'reviews',
+    'reviews_subtitle'  => 'The latest reviews from our customers',
 
     // Services
     'services_badge'    => 'Our Expertise',

@@ -7,8 +7,8 @@
                 @if($logo)
                 <span class="relative inline-flex items-center">
                     <span class="absolute -left-3 top-1/2 h-9 w-1 -translate-y-1/2 bg-orange-500 group-hover:h-11 transition-all"></span>
-                    <span class="bg-white px-4 py-2 border border-zinc-200 shadow-sm">
-                        <img src="{{ $logo }}" alt="{{ \App\Models\SiteSetting::get('site_name','Prima Automotive') }}" class="h-9 lg:h-10 w-auto object-contain">
+                    <span class="shadow-sm">
+                        <img src="{{ $logo }}" alt="{{ \App\Models\SiteSetting::get('site_name','Prima Automotive') }}" class="h-9 lg:h-14 w-auto object-contain">
                     </span>
                 </span>
                 @else
